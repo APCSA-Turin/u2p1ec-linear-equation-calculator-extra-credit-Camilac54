@@ -62,7 +62,7 @@ public class LinearCalculator{
     //calculates the distance between the two points to the nearest HUNDREDTH and returns the value.
     public double distance(){
         double distance = Math.sqrt((double)Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)); // Finds the distance between both points by taking the square root of the difference between the x values squared plus the difference between the y values squared
-        return Math.round(distance * 100.0) / 100.0; // Rounds the previous value to the nearest hundreth before returning it 
+        return Math.round(distance * 100.0) / 100.0; // Rounds the previous value to the nearest hundredth  before returning it 
     }
 
     //yInt() -> returns a double.
@@ -70,12 +70,12 @@ public class LinearCalculator{
     //if y-int if undefined, should return -999.99
     public double yInt() {
         if (x2 == x1) { // This conditional statement makes sure the yIntercept is not undefined, and if it is it will return -999.99
-            return -999.99; // Returns -999.99 if conditonal statement is true
+            return -999.99; // Returns -999.99 if conditional statement is true
         }
 
         double slope = slope(); // Using the slope method to add to a variable named slope for future use
         double yInt = y1 - (slope * x1); // Finds the y intercept by subtracting the first y by the slope times the first x
-        return Math.round(yInt * 100.0) / 100.0; // Rounds the value of the y intercept we found before to the nearest hundreth and returns it
+        return Math.round(yInt * 100.0) / 100.0; // Rounds the value of the y intercept we found before to the nearest hundredth  and returns it
     }
 
     //slope() -> returns a double. 
@@ -87,7 +87,7 @@ public class LinearCalculator{
         if (x2 == x1) {
             return -999.99;
         }
-        return Math.round((yVal / xVal) * 100.0) / 100.0; // Rounds the value of the yVal / xVal to the nearest hundreth and returns it
+        return Math.round((yVal / xVal) * 100.0) / 100.0; // Rounds the value of the yVal / xVal to the nearest hundredth and returns it
     }
 
     //equations() -> returns a String.
@@ -96,20 +96,20 @@ public class LinearCalculator{
     //HINT: You may need other custom methods to decrease the amount of code in the equations() method
     public String equation(){
         double slopeVal = slope();
-        if (slopeVal == -999.99) { // This conditonal makes sure the slope is not undefined
-            return "undefined"; // Returns undefined if the conditonal is true
+        if (slopeVal == -999.99) { // This conditional makes sure the slope is not undefined
+            return "undefined"; // Returns undefined if the conditional is true
         }
         
         double yInt = yInt(); // sets the value of the method yInt() to a variable here named yInt
         if (yInt == 0.0) { // To check if we need to remove the yInt part of the equation, or in other words if yInt is 0
             return "y=" + slopeVal + "x"; // Returns the equation without yInt if the conditional is true
         } else if (slopeVal == 0.0) { // If the first conditional isn't true, it checks if the slope is 0 now
-            return "y=" + yInt; // Returns the equation without the slope and x if the conditonal is true
-        } else if (yInt <= -1) { // If the first two conditonals aren't true, it checks if yInt is negative to remove the + sign in the equation
+            return "y=" + yInt; // Returns the equation without the slope and x if the conditional is true
+        } else if (yInt <= -1) { // If the first two conditionals aren't true, it checks if yInt is negative to remove the + sign in the equation
             return "y=" + slopeVal + "x" + yInt; // Returns the equation without the + sign if the conditional is true
         }
 
-        return "y=" + slopeVal + "x" + "+" + yInt; // If none of those conditonals is true, it returns y=mx+b with the proper values
+        return "y=" + slopeVal + "x" + "+" + yInt; // If none of those conditionals is true, it returns y=mx+b with the proper values
     }
 
     //roundedToHundredth(double x)-> returns double
@@ -145,7 +145,7 @@ public class LinearCalculator{
         } else if (y1 == -y2) { // Checks to see if the points are symmetric about the x-axis by checking if y1 is equal to negative y2
             return "Symmetric about the x-axis"; // If conditional is true, it returns "Symmetric about the x-axis"
         } else if (x1 == -x2) { // Checks to see if the points are symmetric about the y-axis by checking is x1 is equal to negative x2
-            return "Symmetric about the y-axis"; // If conditonal is true, it returns "Symmetric about the y-axis"
+            return "Symmetric about the y-axis"; // If conditional is true, it returns "Symmetric about the y-axis"
         }
         
         return "No symmetry"; // If none of the conditionals are true, it will return "No symmetry"
